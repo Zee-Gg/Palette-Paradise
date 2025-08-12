@@ -24,7 +24,19 @@ Implement a scalable backend to handle increasing user traffic and data.
 
 **Artist Profiles Page:** Showcases profiles of featured artists, including their biography, portfolio, and available artworks. 
 
-**Checkout Page:** A streamlined checkout process allows users to review their cart, enter payment details, and complete purchases securely. Thank You Page: Displays a confirmation message after successful purchases, summarizing the user's order details. Authentication: Utilizes Firebase Authentication for secure user sign-in/sign-up. Shopping Cart: Users can add items to the cart, manage quantities, and proceed to checkout. Firebase manages product inventory and order history. Search and Filters: Includes a search bar and filters for categories, artists, and price ranges to enhance navigation. User Reviews and Preferences: Allows users to leave reviews and set preferences, influencing personalized recommendations. Responsive Design: Provides a consistent experience across all devices.
+**Checkout Page:** A streamlined checkout process allows users to review their cart, enter payment details, and complete purchases securely. 
+
+**Thank You Page:** Displays a confirmation message after successful purchases, summarizing the user's order details. 
+
+**Authentication:** Utilizes Firebase Authentication for secure user sign-in/sign-up. 
+
+**Shopping Cart:** Users can add items to the cart, manage quantities, and proceed to checkout. Firebase manages product inventory and order history. 
+
+**Search and Filters:** Includes a search bar and filters for categories, artists, and price ranges to enhance navigation. 
+
+**User Reviews and Preferences:** Allows users to leave reviews and set preferences, influencing personalized recommendations.
+
+**Responsive Design:** Provides a consistent experience across all devices.
 
 **Technologies Used** 
 
