@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Artwork Details Section */
+.artwork-detail {
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    padding: 40px 20px;
+    background-color:seashell;
+    margin: 20px auto;
+    margin-top: 120px;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.artwork-detail img {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 8px;
+    margin-right: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.artwork-info {
+    max-width: 500px;
+}
+
+.artwork-info h1 {
+    margin-bottom: 15px;
+    font-size: 2em;
+    color: #444;
+}
+
+.artwork-info p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.artwork-info a {
+    color:lightcoral;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.artwork-info a:hover {
+    color: palevioletred;
+}
+
+.artwork-info button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.artwork-info button:hover {
+    background-color: #218838;
+}
+
+/* Other Works Section */
+.other-works {
+    background-color:antiquewhite;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.other-works h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #444;
+}
+
+.other-works-gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.other-works-gallery img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+/* Customer Reviews Section */
+#customer-reviews {
+    background-color: azure;
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#customer-reviews h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #444;
+}
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide non-active items */
+.carousel-item {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+
+.review-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}

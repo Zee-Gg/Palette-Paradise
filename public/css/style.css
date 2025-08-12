@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: relative;
+    height: 100vh;
+    color: white;
+    overflow: hidden;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.search-bar input {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+.nav-links .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 40px; /* Adjust this based on your header height */
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show dropdown on hover */
+.nav-links li:hover .dropdown-content {
+    display: block;
+}
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh; /* Ensure it covers the full height of the header */
+    position: relative;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
+}
+
+
+section {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+.gallery-row {
+    display: flex;
+    justify-content: space-between; /* Adds space between items */
+    gap: 20px; /* Adjust spacing between images */
+}
+
+.gallery-item {
+    flex: 1; /* Ensures equal width */
+    max-width: 30%; /* Ensure three items fit in a row */
+    text-align: center; /* Centers the text under the images */
+}
+
+.gallery-item img {
+    width: 90%;
+    height: 90%; /* Ensures images maintain aspect ratio */
+    border-radius: 8px; /* Optional: adds rounded corners to images */
+}
+
+.gallery-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333; /* Adjust color if needed */
+}
+
+.gallery-rows {
+    display: flex;
+    justify-content: space-between; /* Adds space between items */
+    gap: 20px; /* Adjust spacing between images */
+}
+
+.gallery-items {
+    flex: 1; /* Ensures equal width */
+    max-width: 30%; /* Ensure three items fit in a row */
+    text-align: center; /* Centers the text under the images */
+}
+
+.gallery-items img {
+    width: auto;
+    height: auto; /* Ensures images maintain aspect ratio */
+    border-radius: 8px; /* Optional: adds rounded corners to images */
+}
+
+.gallery-items p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333; /* Adjust color if needed */
+}
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}

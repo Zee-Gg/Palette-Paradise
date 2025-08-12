@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profiles</title>
+    <link rel="stylesheet" href="css/artist profile.css">
+
+</head>
+<body>
+    <section id="artist-profile">
+        <h1>Mark Smith</h1>
+        <p>Mark Smith is a versatile artist known for his diverse range of compelling artworks that span various mediums, including painting, sculpture, and digital art. His creativity knows no bounds, and his ability to seamlessly transition between different artistic styles has earned him a reputation as a true innovator. Mark's work often delves into themes of identity, transformation, and the human experience, inviting viewers to explore deeper emotional and psychological landscapes. With a keen eye for detail and a passion for experimentation, Mark's pieces are both thought-provoking and visually striking. His art has been featured in numerous exhibitions worldwide, and his influence continues to grow within the contemporary art scene. Mark's dedication to pushing artistic boundaries ensures that each of his creations is not just a piece of art but a unique journey for the observer.</p>
+        <h4>Email</h4>
+        <p> <b><i>msmith1909@gmail.com</i></b></p>
+        <div class="art-grid">
+            <div class="art-item">
+                <img src="Pictures/mss.jpg" alt="Art piece 1 ">
+                <p><b>Price: $700</b></p>
+                <img src="Pictures/mss1.jpg" alt="Art piece 2 ">
+                <p><b>Price: $150</b></p>
+                <img src="Pictures/mss4.jpg" alt="Art piece 4 ">
+                <p><b>Price: $720</b></p>
+                <img src="Pictures/mss2.jpg" alt="Art piece 3 ">
+                <p><b>Price: $200</b></p>
+                
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="artist-profile">
+        <h1>Elsa Joe</h1>
+        <p>Elsa Joe captures the beauty of nature with delicate brushstrokes and a serene color palette, bringing peaceful landscapes to life. Her work is characterized by a sense of tranquility, often depicting scenes that evoke feelings of calm and reflection. Whether painting a misty morning by the lake or a sun-dappled forest, Elsa's attention to light and shadow adds a luminous quality to her pieces, making them appear almost ethereal. Her landscapes are not just representations of nature but also emotional expressions, inviting viewers to step into a world of quiet contemplation. Elsa's art has been celebrated for its ability to convey a deep connection to the natural world, and her works are treasured by collectors and nature enthusiasts alike. Through her art, Elsa hopes to inspire others to appreciate the subtle beauty that exists in the everyday landscapes around us.</p>
+        <h4>Email</h4>
+        <p><b><i>elsajoe16@gmail.com</i></b></p>
+        <div class="art-grid">
+            <div class="art-item">
+                <img src="Pictures/ejjj.jpg" alt="Art work 1 ">
+                <p><b>Price: $450</b></p>
+                <img src="Pictures/ejj1.jpg" alt="Art work 2 ">
+                <p><b>Price: $500</b></p>
+                <img src="Pictures/ejj2.jpg" alt="Art work 3">
+                <p><b>Price: $500</b></p>
+                <img src="Pictures/ejj3.jpg" alt="Art work 4 ">
+                <p><b>Price: $510</b></p>
+            </div>
+            </div>
+            </div>
+                
+            
+    </section>
+
+    <section id="artist-profile">
+        <h1>John Ben</h1>
+        <p>John Ben is a visionary artist whose work blends traditional techniques with modern themes. Born and raised in a small coastal town, John draws inspiration from the natural world, using vibrant colors and bold strokes to capture the essence of the landscapes and emotions that surround them. Their work often explores the intersection of nature and humanity, challenging viewers to reflect on their relationship with the environment. John’s art has been featured in galleries across the country, and they continue to push the boundaries of contemporary art with each new piece.</p>
+        <h4>Email</h4>
+        <p><b><i>johnben123@gmail.com</i></b></p>
+        <div class="art-grid">
+            <div class="art-item">
+                <img src="Pictures/jjb.jpg" alt="Art Collection 1">
+                <p><b>Price: $620</b></p>
+                <img src="Pictures/jjb1.jpg" alt="Art Collection 2">
+                <p><b>Price: $650</b></p>
+                <img src="Pictures/jjb2.jpg" alt="Art Collection 3">
+                <p><b>Price: $410</b></p>
+                <img src="Pictures/jjb3.jpg" alt="Art Collection 4">
+                <p><b>Price: $800</b></p>
+            </div>
+            </div>
+           
+    </section>
+
+    
+        <section id="contact-form">
+            <h2>Contact the Artists</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+    
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Palette Paradise. All rights reserved.</p>
+    </footer>
+   <!-- JavaScript -->
+   <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCeQpWWL9G3qg6N_j0ZRy1LdzYIWQ-eQqM",
+        authDomain: "online-art-gallery-75f53.firebaseapp.com",
+        databaseURL: "https://online-art-gallery-75f53-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "online-art-gallery-75f53",
+        storageBucket: "online-art-gallery-75f53.appspot.com",
+        messagingSenderId: "653464446865",
+        appId: "1:653464446865:web:42cc3985b39307b0ff1c30"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Form submission handler
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form refresh
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Firebase database reference
+        const contactRef = ref(database, 'contacts');
+        const newContactRef = push(contactRef);
+
+        // Store data in Firebase
+        set(newContactRef, {
+            name: name,
+            email: email,
+            message: message,
+            timestamp: new Date().toISOString()
+        })
+        .then(() => {
+            alert('Thank you! Your message has been sent to the artist.');
+            document.querySelector('form').reset();
+        })
+        .catch((error) => {
+            alert('Error sending your message: ' + error.message);
+        });
+    });
+</script>
+
+       
+    
+</body>
+</html>

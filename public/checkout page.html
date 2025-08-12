@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Online Art Gallery</title>
+    <link rel="stylesheet" href="css/checkout page.css">
+
+    
+    <script type="module">
+        // Import Firebase libraries
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCeQpWWL9G3qg6N_j0ZRy1LdzYIWQ-eQqM",
+            authDomain: "online-art-gallery-75f53.firebaseapp.com",
+            projectId: "online-art-gallery-75f53",
+            storageBucket: "online-art-gallery-75f53.appspot.com",
+            messagingSenderId: "653464446865",
+            appId: "1:653464446865:web:42cc3985b39307b0ff1c30"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Function to parse URL parameters
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                title: params.get('title'),
+                price: params.get('price'),
+                quantity: params.get('quantity') || 1, // Default to 1 if not specified
+            };
+        }
+
+        // Function to display the order summary
+        function displayOrderSummary() {
+            const { title, price, quantity } = getQueryParams();
+            if (title && price && quantity) {
+                const total = (parseFloat(price) * parseInt(quantity)).toFixed(2);
+                document.getElementById('order-summary').innerHTML = `
+                    <h2>Order Summary</h2>
+                    <p><b>Artwork Title:</b> ${title}</p>
+                    <p><b>Quantity:</b> ${quantity}</p>
+                    <p><b>Price per Item:</b> $${price}</p>
+                    <p><b>Total Price:</b> $${total}</p>
+                `;
+            } else {
+                document.getElementById('order-summary').innerHTML = `
+                    <h2>No items in your cart.</h2>
+                `;
+            }
+        }
+
+        // Function to handle form submission and save order to Firestore
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('checkout-form').addEventListener('submit', async function (event) {
+                event.preventDefault(); // Prevent the form from submitting the traditional way
+
+                const name = document.getElementById('name').value;
+                const address = document.getElementById('address').value;
+                const card = document.getElementById('card').value;
+
+                // Get order details from URL parameters
+                const { title, price, quantity } = getQueryParams();
+                const total = (parseFloat(price) * parseInt(quantity)).toFixed(2);
+
+                if (name && address && card) {
+                    try {
+                        // Save order to Firebase Firestore
+                        await addDoc(collection(db, 'orders'), {
+                            name: name,
+                            address: address,
+                            card: card,
+                            artworkTitle: title,
+                            quantity: quantity,
+                            pricePerItem: price,
+                            totalPrice: total,
+                            timestamp: serverTimestamp()
+                        });
+
+                        // Redirect to the "Thank You" page
+                        window.location.href = `thankyou.html?name=${encodeURIComponent(name)}&total=${total}`;
+                    } catch (error) {
+                        alert('Error placing your order: ' + error.message);
+                    }
+                } else {
+                    alert('Please fill in all required fields.');
+                }
+            });
+        });
+
+        // Call the function to display the order summary when the page loads
+        window.onload = displayOrderSummary;
+    </script>
+</head>
+<body>
+    <section id="checkout">
+        <h1>Checkout</h1>
+
+        <!-- Order Summary -->
+        <section id="order-summary">
+            <!-- Order summary will be populated here by JavaScript -->
+        </section>
+
+        <!-- Checkout Form -->
+        <form id="checkout-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Shipping Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="card">Credit Card:</label>
+            <input type="text" id="card" name="card" required>
+            
+            <button type="submit">Confirm Purchase</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Art Gallery. All rights reserved.</p>
+    </footer>
+</body>
+</html>
